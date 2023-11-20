@@ -9,7 +9,9 @@ setup.pyがあるディレクターをカレントディレクトリとし、「
 使用する際には、kernel_AHCをimportし、使用したい手法のインスタンスを生成してください。
 インスタンスの生成については以下のように行います。
 
+```
 obj = kernel_AHC.HC_single_linkage(input_data = dsim_list)
+```
 
 こちらのコードは最短距離法を用いる際のコードであり、そのほかの手法については「HC_single_linkage」を以下のものにしてください。（medoidと書かれているものは、クラスタの重心にmedoidを使用しているものです）
 
@@ -27,13 +29,17 @@ dsim_listは非類似度行列を示しています。
 kernel_HC_dsimは、カーネル関数によって得られたカーネル行列を基に、写像空間上での距離行列を取得するものであり、引数にカーネル行列をndarrayの形式で与えてください。
 以下は使用例です。（kernel_listがカーネル行列をndarrayの形式で表現したものです）
 
+```
 dsim_list = kernel_AHC.kernel_HC_dsim(kernel_list)
+```
 
 解析の実行、ラベルの表示、は以下のコードによって行います。
 
+```
 obj.fit()
 obj.get_label_list(3)
 obj.create_dendrogram()
+```
 
 get_label_list()は、引数の数にクラスタ分割を行い、結果のラベルを戻り値とします。
 create_dendrogram()は、樹形図を作成し、現在のカレントディレクトリに画像ファイルを保存します。
